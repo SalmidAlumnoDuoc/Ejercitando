@@ -40,13 +40,21 @@ def opt():
         except ValueError:
             print("La opción debe ser un numero entero")
 
+def listar_usuarios(usuarios):
+    listado = []
+    for clave,datos in usuarios.items():
+        listado.append(f"ID: {clave}, Nombre: {datos[0]} {datos[1]}, Edad: {datos[2]}, Email: {datos[3]}")
+    return listado
+
 def main():
     while True:
         menu()
         opcion = opt()
 
         if opcion == 1:
-            pass
+            listado = listar_usuarios(usuarios)
+            print("\n".join(listado))
+
         elif opcion == 2:
             pass
         elif opcion == 3:
@@ -63,5 +71,6 @@ def main():
             pass
         elif opcion == 9:
             print("Programa Finalizado, Adiós")
-            
+            break
+
 main()
